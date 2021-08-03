@@ -216,21 +216,25 @@ const renderProductListComponent = () => {
     productListTitle.appendChild(productListTitleText);
 
     const selectProduct = document.createElement("select");
+
     getComputers().then(result => {
         result.forEach(element => {
             const laptop = document.createElement("option");
-            laptop.addEventListener("click", (e) => {
+            
+            laptop.addEventListener("click", () => {
                 const container = document.getElementsByClassName("container")[0];
                 const productInfo = document.getElementsByClassName("productInfo")[0];
                 container.removeChild(productInfo);
                 renderProductInfoComponent(result);
-                removeProductFeatures();
                 renderProductFeatures();
+                removeProductFeatures();
             })  
             laptop.text = element.title;
             selectProduct.add(laptop);
+            
         });
         renderProductInfoComponent(result);
+        renderProductFeatures();
     })
     productList.appendChild(selectProduct);
 
