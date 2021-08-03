@@ -1,0 +1,122 @@
+
+body {
+    margin: 0;
+}
+
+.banner {
+    padding: 15px 0 0 150px;
+    font-size: 30px;
+    color: white;
+    background-color: black;
+    height: 50px;
+    width: 100%;
+}
+
+.container {    
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+}
+.bankContainer {
+    background-color:#f5f5dc7e;
+    height: 300px;
+    width: 25%;
+    margin: 15px;
+}
+.bank {
+    width: 70%;
+    margin: 0px 0 0 42.5px;
+}
+
+.currentBalance {
+    float: right;
+}
+.loanButton {
+    display:inline;
+    height: 40px;
+    width: 150px;
+    background-color: green;
+    color: white;
+    
+}
+.workContainer {
+    background-color:#f5f5dc7e;
+    height: 300px;
+    width: 25%;
+    margin: 15px;
+}
+.work {
+    width: 70%;
+    margin: 0px 0 0 42.5px;
+}
+.workButton {
+    height: 40px;
+    width: 60px;
+    background-color: rgb(14, 45, 221);
+    color: rgb(255, 255, 255);
+    margin: 60px 5px 0 5px;
+}
+.depositButton {
+    height: 40px;
+    width: 60px;
+    background-color: rgb(231, 228, 17);
+    color: black;
+}
+
+.productListContainer {
+    background-color:#f5f5dc7e;
+    height: 300px;
+    width: 25%;
+    margin: 15px;
+}
+.productList {
+    width: 70%;
+    margin: 0px 0 0 42.5px;
+}
+
+.productInfo {
+    display: flex;
+    justify-content: space-evenly;
+    background-color:#f5f5dc7e;
+    height: 300px;
+    width: 92%;
+    margin: 15px;
+}
+.repayLoanButton {
+    height: 40px;
+    width: 60px;
+    background-color: rgb(80, 214, 26);
+    color: black;
+}
+.buyButton {
+    font-weight: bold;
+    font-size: large;
+    height: 40px;
+    width: 150px;
+    border-radius: 7px;
+    background-color: rgb(58, 195, 219);
+    color: black;
+    
+}
+.productFeatures {
+    font-size: 11px;
+}
+.imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.itemInfoContainer {
+    margin-top: 70px;
+  
+}
+.productContainer {
+    margin-top: 70px;
+}
+.price {
+    font-size: 24px;
+    padding-left: 40px;
+}
