@@ -88,11 +88,15 @@ const renderBankComponent = () => {
                 currentDebt = parseInt(loanAmount);
                 currentBalance.textContent = currentBankBalance;
                 loanBalance.textContent = "Current debt " ;
+
                 loanCurrency.textContent = " kr";
                 loanBalance.appendChild(loanCurrency);
+
                 currentLoanBalance.textContent = currentDebt;
                 loanBalance.appendChild(currentLoanBalance);
-                
+
+                const repayLoanButton = document.getElementsByClassName("repayLoanButton")[0];
+                repayLoanButton.classList.toggle("hidden");
                 isLoanAvailable = false;
             }
         }
@@ -169,6 +173,7 @@ const renderWorkComponent = () => {
 
     const repayLoanButton = document.createElement("button");
     repayLoanButton.setAttribute("class", "repayLoanButton");
+    repayLoanButton.classList.toggle("hidden");
     repayLoanButton.textContent = "Repay";
 
     repayLoanButton.addEventListener("click", () => {
@@ -177,17 +182,16 @@ const renderWorkComponent = () => {
         const balance = document.getElementById("currentBankValue");
         if(currentDebt > 0) {
             currentDebt -= parseInt(currentPayBalance.textContent);
-            if(currentDebt < 0) {
-                
-                isLoanAvailable = true;
-                currentBankBalance -= currentDebt;
-                balance.textContent = currentBankBalance;
-
+            if(currentDebt < 0) { // If debt turns negative after paying off
                 alert('Debt cleared! You have been refunded ' + -currentDebt + 'kr');
-                currentDebt = 0;
-                loanBalance.textContent = currentDebt;
             }
+            isLoanAvailable = true;
+            currentBankBalance -= currentDebt;  
+            balance.textContent = currentBankBalance;
+            currentDebt = 0;
+            loanBalance.textContent = currentDebt;
             currentPayBalance.textContent = 0;
+            repayLoanButton.classList.toggle("hidden");
         }
         else {
             
