@@ -341,7 +341,7 @@ const renderProductListComponent = () => {
                         alert('Congratulations, you now own a new mega laptop!');
                     }
                     else {
-                        alert('You do not have enough money to buy this laptop! ');
+                        alert('Can\'t afford this laptop');
                     }
                 })
                 purchaseProductContainer.appendChild(buyButton);
