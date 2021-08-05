@@ -183,18 +183,24 @@ const renderWorkComponent = () => {
         if(currentDebt > 0) {
             currentDebt -= parseInt(currentPayBalance.textContent);
             if(currentDebt < 0) { // If debt turns negative after paying off
+                
+                isLoanAvailable = true;
+                currentBankBalance -= currentDebt;   // Double negative = add the amount that went over the loan to your bank account.
+                balance.textContent = currentBankBalance;
+                repayLoanButton.classList.toggle("hidden");
                 alert('Debt cleared! You have been refunded ' + -currentDebt + 'kr');
+                currentDebt = 0;
             }
-            isLoanAvailable = true;
-            currentBankBalance -= currentDebt;  
-            balance.textContent = currentBankBalance;
-            currentDebt = 0;
+            else if(currentDebt === 0) {
+                isLoanAvailable = true;
+                currentDebt = 0;
+                repayLoanButton.classList.toggle("hidden");
+                alert('Debt cleared!');
+            }
             loanBalance.textContent = currentDebt;
             currentPayBalance.textContent = 0;
-            repayLoanButton.classList.toggle("hidden");
         }
         else {
-            
             alert('You dont have a loan to pay off!');
         }
     })
