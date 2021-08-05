@@ -221,6 +221,7 @@ const renderProductListComponent = () => {
 
     const selectProduct = document.createElement("select");
 
+    try {
     getComputers().then(result => {
         result.forEach(element => {
             const laptop = document.createElement("option");
@@ -240,6 +241,9 @@ const renderProductListComponent = () => {
         renderProductInfoComponent(result);
         renderProductFeatures();
     })
+    } catch(err) {
+        console.error('error: ' + err);
+    }
     productList.appendChild(selectProduct);
 
     const productFeaturesTitle = document.createElement("h4");
@@ -252,7 +256,7 @@ const renderProductListComponent = () => {
     const renderProductFeatures = () => {
         
         productList.appendChild(productFeatures);
-        
+        try {
         getComputers().then(result => {
         result.forEach(element => {
             if(element.title === selectProduct.options[selectProduct.selectedIndex].value) {
@@ -266,6 +270,9 @@ const renderProductListComponent = () => {
             }
         })
     })
+    } catch(err) {
+        console.error('error: ' + err);
+    }
     }
     const removeProductFeatures = () => {
         while(productFeatures.firstChild) {
@@ -300,7 +307,7 @@ const renderProductListComponent = () => {
 
                 
                 const image = document.createElement("img");
-                image.src = 'https://noroff-komputer-store-api.herokuapp.com/'+ element.image;
+                image.src = 'https://noroff-komputer-store-api.herokuapp.com/'+ element.image; 
                 image.width = 200;
                 image.height = 200;
                 image.onerror = () => {
